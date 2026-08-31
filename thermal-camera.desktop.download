@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Thermal Camera
+Comment=Launch TC001-style thermal camera viewer
+Exec=/home/dave/microscope/launch_thermal.sh
+Icon=camera-web
+Terminal=true
+Categories=Utility;

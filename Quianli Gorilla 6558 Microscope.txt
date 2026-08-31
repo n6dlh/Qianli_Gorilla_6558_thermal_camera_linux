@@ -1,0 +1,19 @@
+Quianli Gorilla 6558 Microscope Linux software for the Thermal Camera based on https://github.com/leswright1977/PyThermalCamera
+
+Current build on pyThermalCamera will crash. "numpy ≥2.0 raises OverflowError on uint8 scalar overflow instead of wrapping; wrap raw byte reads from thdata in int() before combining hi/lo bytes into the 16-bit temp value"
+
+This has been fixed for numpy 2.0 and I have created a launch_thermal.sh auto-detect script as a bonus addition — since device index isn't stable and by-id can collide (like it did on your setup with the duplicate placeholder serial), that's a genuinely useful addition for anyone running this long-term rather than just testing it once
+
+I also am including a .desktop file so this can be launched in the Gui
+
+
+
+
+
+Worth including in that repo/email so it's actually useful to the next person, not just a patched file:
+
+The four line-level fixes — hi, lo, himax/lomax, himin/lomin, loavg all needing explicit int() casts before arithmetic, since numpy 2.x throws instead of silently wrapping uint8 overflow (his original code was written against an older numpy that let this slide)
+
+A one-line note on why, so it doesn't look like a random diff — something like "numpy ≥2.0 raises OverflowError on uint8 scalar overflow instead of wrapping; wrap raw byte reads from thdata in int() before combining hi/lo bytes into the 16-bit temp value"
+
+The launch_thermal.sh auto-detect script as a bonus addition — since device index isn't stable and by-id can collide (like it did on your setup with the duplicate placeholder serial), that's a genuinely useful addition for anyone running this long-term rather than just testing it once
