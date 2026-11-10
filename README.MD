@@ -17,16 +17,16 @@ While open hit Shift + ? or / to see the key bindings
 
 Current Key Bindings are:
 
-"a/z  Blur +/-",
-"s/x  Label threshold +/-",
-"d/c  Scale +/-",
-"f/v  Contrast +/-",
-"q/w  Fullscreen / Windowed",
-"r/t  Record / Stop",
-"p    Snapshot",
-"m    Cycle colormap",
-"h    Toggle HUD",
-"?    Toggle this help",
+"a/z  Blur +/-"
+"s/x  Label threshold +/-"
+"d/c  Scale +/-
+"f/v  Contrast +/-"
+"q/w  Fullscreen / Windowed"
+"r/t  Record / Stop"
+"p    Snapshot"
+"m    Cycle colormap"
+"h    Toggle HUD"
+"?    Toggle this help"
 "Esc  Quit"
     
 
