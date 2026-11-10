@@ -1,4 +1,4 @@
-This is a Linux based software for using the Qianli Gorilla 6558 Microscope themrmal camera with Linux. This is based on the PyThermalCamera code base. This was a codebase is for Topdon TC001 Thermal Camera, and clones that the Qianli camera is based on.   https://github.com/leswright1977/PyThermalCamera* This has been compiled into an Appimage for multi distro use. 
+This is a Linux based software for using the Qianli Gorilla 6558 Microscope thermal camera with Linux. This is based on the PyThermalCamera code base, PyThermalCamera was written for the Topdon TC001 and compatible cameras, which the Qianli module is based on.   https://github.com/leswright1977/PyThermalCamera* This has been compiled into an Appimage for multi distro use. 
 
 ## Install
 1. Download `ThermalCam-*-x86_64.AppImage` from [Releases](../../releases/latest)
@@ -12,7 +12,7 @@ If the camera isn't found, make sure your user is in the `video` group:
 When opened the main screen will pop up
 ![Thermal view](img/screen.png)
 
-While open hit Shift + ? or / to see the key bindings
+While open hit / or ? to see the key bindings
 ![Keys](img/keybindings.png)
 
 | Key | Action |
