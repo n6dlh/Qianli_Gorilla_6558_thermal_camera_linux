@@ -15,9 +15,20 @@ When opened the main screen will pop up
 While open hit Shift + ? or / to see the key bindings
 ![Keys](img/keybindings.png)
 
-Keep in mind that on high resolution monitors if you try to toggel full screen it will crash, adjusting the size up is a better option
+Current Key Bindings are:
+    "a/z  Blur +/-",
+    "s/x  Label threshold +/-",
+    "d/c  Scale +/-",
+    "f/v  Contrast +/-",
+    "q/w  Fullscreen / Windowed",
+    "r/t  Record / Stop",
+    "p    Snapshot",
+    "m    Cycle colormap",
+    "h    Toggle HUD",
+    "?    Toggle this help",
+    "Esc  Quit"
+    
 
-## Installing to Programs
 I recommend installing Flatpack and Gear Lever, this will allow any distro to drag and drop the appimage into Gear Lever and will add this to the programs list, Works on Gnome and KDE. 
 
 
