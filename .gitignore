@@ -1,0 +1,7 @@
+build/
+dist/
+*.AppImage
+__pycache__/
+*.pyc
+*output.avi
+TC001*.png

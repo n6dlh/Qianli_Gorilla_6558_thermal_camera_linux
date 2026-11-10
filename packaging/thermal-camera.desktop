@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Thermal Camera
+Comment=Quanli Gorilla 6558 thermal microscope viewer
+Exec=thermal-camera
+Icon=thermal-camera
+Categories=Science;Electronics;
+Terminal=false

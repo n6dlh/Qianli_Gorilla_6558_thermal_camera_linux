@@ -29,6 +29,8 @@ import numpy as np
 import argparse
 import time
 import io
+import glob
+import sys
 
 #We need to know if we are running on the Pi, because openCV behaves a little oddly on all the builds!
 #https://raspberrypi.stackexchange.com/questions/5100/detect-that-a-python-program-is-running-on-the-pi
@@ -49,9 +51,24 @@ if args.device:
 	dev = args.device
 else:
 	dev = 0
-	
+def find_thermal():
+    for d in sorted(glob.glob('/dev/video*')):
+        c = cv2.VideoCapture(d, cv2.CAP_V4L2)
+        if c.isOpened():
+            w = c.get(cv2.CAP_PROP_FRAME_WIDTH)
+            h = c.get(cv2.CAP_PROP_FRAME_HEIGHT)
+            if (w, h) == (256, 384):
+                return c
+            c.release()
+    return None	
 #init video
-cap = cv2.VideoCapture('/dev/video'+str(dev), cv2.CAP_V4L)
+if args.device:
+    cap = cv2.VideoCapture('/dev/video'+str(args.device), cv2.CAP_V4L2)
+else:
+    cap = find_thermal()
+if cap is None or not cap.isOpened():
+    print("Thermal camera not found. Is it plugged in?")
+    sys.exit(1)
 #cap = cv2.VideoCapture(0)
 #pull in the video but do NOT automatically convert to RGB, else it breaks the temperature data!
 #https://stackoverflow.com/questions/63108721/opencv-setting-videocap-property-to-cap-prop-convert-rgb-generates-weird-boolean

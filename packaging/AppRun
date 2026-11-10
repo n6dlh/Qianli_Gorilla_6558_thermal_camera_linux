@@ -1,0 +1,4 @@
+#!/bin/bash
+HERE="$(dirname "$(readlink -f "$0")")"
+export APPDIR="${APPDIR:-$HERE}"
+exec "$APPDIR/opt/python3.12/bin/python3.12" -s "$APPDIR/opt/thermal/thermal_camera.py" "$@"
