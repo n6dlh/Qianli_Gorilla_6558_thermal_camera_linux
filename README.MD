@@ -9,8 +9,13 @@ If the camera isn't found, make sure your user is in the `video` group:
 `sudo usermod -aG video $USER`, then log out and back in.
 
 ## Program
-This is what will pop up, the terminal window will show the keybindings, to close the program click the terminal window and hit Ctl+C, that is it!
-![Thermal view](img/image.png)
+When opened the main screen will pop up
+![Thermal view](img/screen.png)
+
+While open hit Shift + ? or / to see the key bindings
+![Keys](img/keybindings.png)
+
+Keep in mind that on high resolution monitors if you try to toggel full screen it will crash, adjusting the size up is a better option
 
 ## Installing to Programs
 I recommend installing Flatpack and Gear Lever, this will allow any distro to drag and drop the appimage into Gear Lever and will add this to the programs list, Works on Gnome and KDE. 

@@ -95,6 +95,20 @@ hud = True
 recording = False
 elapsed = "00:00:00"
 snaptime = "None"
+showHelp = False
+helpText = [
+    "a/z  Blur +/-",
+    "s/x  Label threshold +/-",
+    "d/c  Scale +/-",
+    "f/v  Contrast +/-",
+    "q/w  Fullscreen / Windowed",
+    "r/t  Record / Stop",
+    "p    Snapshot",
+    "m    Cycle colormap",
+    "h    Toggle HUD",
+    "?    Toggle this help",
+    "Esc  Quit"
+]
 
 def rec():
 	now = time.strftime("%Y%m%d--%H%M%S")
@@ -279,6 +293,14 @@ while(cap.isOpened()):
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45,(0, 255, 255), 1, cv2.LINE_AA)
 
 		#display image
+		if showHelp:
+			h_box = 20 + 18 * len(helpText)
+			overlay = heatmap.copy()
+			cv2.rectangle(overlay, (0, 0), (300, h_box), (0, 0, 0), -1)
+			heatmap = cv2.addWeighted(overlay, 0.7, heatmap, 0.3, 0)
+			for i, line in enumerate(helpText):
+				cv2.putText(heatmap, line, (10, 25 + 18 * i), font, 0.45,
+							(0, 255, 255), 1, cv2.LINE_AA)
 		cv2.imshow('Thermal',heatmap)
 
 		if recording == True:
@@ -288,6 +310,8 @@ while(cap.isOpened()):
 			videoOut.write(heatmap)
 		
 		keyPress = cv2.waitKey(1)
+		if cv2.getWindowProperty('Thermal', cv2.WND_PROP_VISIBLE) < 1:
+			break
 		if keyPress == ord('a'): #Increase blur radius
 			rad += 1
 		if keyPress == ord('z'): #Decrease blur radius
@@ -318,17 +342,13 @@ while(cap.isOpened()):
 			newHeight = height*scale
 			if dispFullscreen == False and isPi == False:
 				cv2.resizeWindow('Thermal', newWidth,newHeight)
-
-		if keyPress == ord('q'): #enable fullscreen
+		if keyPress == ord('q'):  # enable fullscreen
 			dispFullscreen = True
-			cv2.namedWindow('Thermal',cv2.WND_PROP_FULLSCREEN)
-			cv2.setWindowProperty('Thermal',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
-		if keyPress == ord('w'): #disable fullscreen
+			cv2.setWindowProperty('Thermal', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+		if keyPress == ord('w'):  # disable fullscreen
 			dispFullscreen = False
-			cv2.namedWindow('Thermal',cv2.WINDOW_GUI_NORMAL)
-			cv2.setWindowProperty('Thermal',cv2.WND_PROP_AUTOSIZE,cv2.WINDOW_GUI_NORMAL)
-			cv2.resizeWindow('Thermal', newWidth,newHeight)
-
+			cv2.setWindowProperty('Thermal', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_NORMAL)
+			cv2.resizeWindow('Thermal', newWidth, newHeight)
 		if keyPress == ord('f'): #contrast+
 			alpha += 0.1
 			alpha = round(alpha,1)#fix round error
@@ -339,7 +359,8 @@ while(cap.isOpened()):
 			alpha = round(alpha,1)#fix round error
 			if alpha<=0:
 				alpha = 0.0
-
+		if keyPress in (ord('?'), ord('/')):
+			showHelp = not showHelp
 
 		if keyPress == ord('h'):
 			if hud==True:
@@ -362,9 +383,7 @@ while(cap.isOpened()):
 
 		if keyPress == ord('p'): #f to finish reording
 			snaptime = snapshot(heatmap)
-
-		if keyPress == ord('q'):
-			break
-			capture.release()
-			cv2.destroyAllWindows()
-		
+   		
+		if keyPress == 27:  # Esc to quit
+   			break
+				
