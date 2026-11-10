@@ -8,6 +8,9 @@ This is a Linux based software for using the Qianli Gorilla 6558 Microscope ther
 If the camera isn't found, make sure your user is in the `video` group:
 `sudo usermod -aG video $USER`, then log out and back in.
 
+
+## Adding to Applications
+I recommend installing Flatpack and Gear Lever, this will allow any distro to drag and drop the appimage into Gear Lever and will add this to the programs list, Works on Gnome and KDE. 
 ## Program
 When opened the main screen will pop up
 ![Thermal view](img/screen.png)
@@ -30,7 +33,7 @@ While open hit / or ? to see the key bindings
 | Esc | Quit |
     
 
-I recommend installing Flatpack and Gear Lever, this will allow any distro to drag and drop the appimage into Gear Lever and will add this to the programs list, Works on Gnome and KDE. 
+
 
 
 *The original repo is broken where the Python Code will not work with the Python Numpy 2.0, so the code has been changed to make it work, it will also autodetect the stream of the camera when launched based on the resolution. The Appimage removed the dependencies and packaged everything into one download and launch. This is a work in progress so stay tuned
