@@ -17,17 +17,17 @@ While open hit Shift + ? or / to see the key bindings
 
 Current Key Bindings are:
 
-"a/z  Blur +/-"
-"s/x  Label threshold +/-"
-"d/c  Scale +/-
-"f/v  Contrast +/-"
-"q/w  Fullscreen / Windowed"
-"r/t  Record / Stop"
-"p    Snapshot"
-"m    Cycle colormap"
-"h    Toggle HUD"
-"?    Toggle this help"
-"Esc  Quit"
+a/z  Blur +/-
+s/x  Label threshold +/-
+d/c  Scale +/-
+f/v  Contrast +/-
+q/w  Fullscreen / Windowed
+r/t  Record / Stop
+p    Snapshot
+m    Cycle colormap
+h    Toggle HUD
+?    Toggle this help
+Esc  Quit
     
 
 I recommend installing Flatpack and Gear Lever, this will allow any distro to drag and drop the appimage into Gear Lever and will add this to the programs list, Works on Gnome and KDE. 
